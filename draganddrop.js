@@ -112,7 +112,7 @@ angular.module("ang-drag-drop",[])
 				            });
 			            }
 
-			            e.dataTransfer.setData("dataToSend", sendData);
+			            e.dataTransfer.setData("Text", sendData);
 			            currentData = angular.fromJson(sendData);
 			            e.dataTransfer.effectAllowed = "copyMove";
 			            $rootScope.$broadcast("ANGULAR_DRAG_START", sendChannel, currentData.data);
@@ -212,7 +212,7 @@ angular.module("ang-drag-drop",[])
                         e.stopPropagation(); // Necessary. Allows us to drop.
                     }
 
-                    var sendData = e.dataTransfer.getData("dataToSend");
+                    var sendData = e.dataTransfer.getData("Text");
                     sendData = angular.fromJson(sendData);
 
                     var fn = $parse(attr.uiOnDrop);
@@ -378,3 +378,4 @@ angular.module("ang-drag-drop",[])
     ]);
 
 }(angular));
+
